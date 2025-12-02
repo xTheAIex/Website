@@ -1,0 +1,172 @@
+
+/* 
+AI Dislosure in .js*/
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.controls-container {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#yearSlider {
+  flex-grow: 1;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+#yearInput {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  flex: 1; 
+  min-height: 0; 
+}
+
+#map-container {
+  flex: 2;
+  background: #e0f7fa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+#map { width: 100%; height: 100%; }
+
+
+#list-container {
+  flex: 1;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#list-container h3 {
+  margin: 0;
+  padding: 15px;
+  background: #2c3e50;
+  color: white;
+}
+
+.list-header {
+  display: flex;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  background: #f9f9f9;
+}
+.list-header span { flex: 1; }
+
+#race-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.race-item {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.race-item:hover { background: #f0f0f0; }
+.race-item.selected { background: #ffe0b2; border-left: 5px solid #ff9800; }
+.race-item span { flex: 1; }
+
+.country {
+  fill: #cfd8dc;
+  stroke: #fff;
+  stroke-width: 0.5px;
+}
+.country.has-history { fill: #ffffff; }
+.country.active-season { fill: #ffe0b2; stroke: #ff9800; stroke-width: 1px; }
+
+#map-legend {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.legend-item { display: flex; align-items: center; margin-bottom: 5px; }
+.color-box { width: 12px; height: 12px; margin-right: 5px; border: 1px solid #999; }
+.color-box.inactive { background: #cfd8dc; }
+.color-box.history { background: #ffffff; }
+.color-box.active { background: #ffe0b2; }
+
+
+.tooltip-window {
+  position: absolute;
+  background: white;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 1000;
+  width: 200px;
+  transform: translate(-105%, -50%); 
+}
+.tooltip-window.hidden { display: none; }
+
+.disclaimer {
+  text-align: right;
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+/*
+Possible imrovements:
+
+Country borders are not same size
+Map doesnt move on list klick
+Tooltips are not always fully shown on map
+If a country has multiple circuits in one year
+Legend is maybe too small/ hard to understand for 1st time users
+*/

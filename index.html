@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!-- AI Dislosure in .js-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historic Circuit Map</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <h2 style="text-align:center">
+            Historic F1 Map by Season
+        </h2>
+        
+        <div class="controls-container">
+            <div class="slider-wrapper">
+                <label for="yearSlider" style="font-weight:bold; margin-right:10px;">
+                    Season:
+                </label>
+                
+                <input id="yearSlider" type="range" min="1950" max="2024" value="2024" step="1" list="decades" />
+                <datalist id="decades">
+                    <option value="1950" label="1950"></option>
+                    <option value="1960" label="1960"></option>
+                    <option value="1970" label="1970"></option>
+                    <option value="1980" label="1980"></option>
+                    <option value="1990" label="1990"></option>
+                    <option value="2000" label="2000"></option>
+                    <option value="2010" label="2010"></option>
+                    <option value="2020" label="2020"></option>
+                </datalist>
+                
+                <input id="yearInput" type="number" min="1950" max="2024" value="2024"/>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <div id="map-container">
+                <div id="map"></div>
+                
+                <div id="map-legend">
+                    <div class="legend-item">
+                        <span class="color-box inactive"></span>
+                        Never Hosted
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box history"></span>
+                        Historical Host
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box active"></span>
+                        Host (Selected Season)
+                    </div>
+                </div>
+                
+                <div id="tooltip" class="tooltip-window hidden"></div>
+            </div>
+
+            <div id="list-container">
+                <h3>Races in <span id="yearDisplay">2024</span></h3>
+                <div class="list-header">
+                    <span>  Race Number </span>
+                    <span>  Grand Prix </span>
+                    <span>  Circuit </span>
+                </div>
+                <ul id="race-list"></ul>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            Student Project | F1 Data from Kaggle/Ergast API
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
